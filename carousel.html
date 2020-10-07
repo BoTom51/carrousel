@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrousel</title>
+
+    <link rel="shortcut icon" href="./favicon/carrousel_faviconB.jpg" sizes="20x20" type="image/x-icon">
+    <link rel="stylesheet" href="./css/carouselFade.css" />
+  </head>
+  <body>
+    <div class="carousel" data-interval="2000">
+      <div class="slides">
+        <img class="fade active" src="./img/Image01.jpg" alt="- Legende/nom/commentaire1 -" />
+        <img class="fade" src="./img/Image02.jpg" alt="- Legende/nom/commentaire2 -" />
+        <img class="fade" src="./img/Image03.jpg" alt="- Legende/nom/commentaire3 -" />
+        <img class="fade" src="./img/Image04.jpg" alt="- Legende/nom/commentaire4 -" />
+        <img class="fade" src="./img/Image05.jpg" alt="- Legende/nom/commentaire5 -" />
+        <img class="fade" src="./img/Image06.jpg" alt="- Legende/nom/commentaire6 -" />
+        <img class="fade" src="./img/Image07.jpg" alt="- Legende/nom/commentaire7 -" />
+      </div>
+      <div class="bouttons">
+        <div class="precedent fleche">◀</div><!--&ltcir;-->
+        <div class="suivant fleche">▶</div><!--&gtcir;-->
+      </div>
+      <div class="indicators"></div><!-- contiendra des span dynamique -->
+      <span class="legende"></span><!-- contiendra le texte de l'attribut alt -->
+    </div>
+
+    <script src="./js/carousel.js"></script>
+  </body>
+</html>

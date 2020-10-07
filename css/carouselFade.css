@@ -1,0 +1,120 @@
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+/*/////////////// CARROUSEL ///////////////*/
+div.carousel {
+  display: flex; /*enfant responsive*/
+  position: relative; /*parent repere pour les enfants absolute*/
+  /*--- dim/placement ---*/
+  margin: 20px auto; /*marge test + centrer*/
+  width: 80%; /*ou max-content*/
+  /*--------- cosmetique ---------*/
+  border-radius: 5px;
+  box-shadow: #000000 0px 0px 6px;
+  border: #00000036 2px solid;
+}
+/*////// SLIDE ET ELEMENTS A AFFICHER //////*/
+.carousel .slides {
+  position: relative; /*parent repere pour les images absolute*/
+  width: 100%;
+  background-color: #272727; /*fond rendant le fade moins flashy*/
+  border-radius: 4px;
+}
+.carousel .slides > * {
+  display: none; /*évite de repasser en inline une fois activé*/ /*ttttttttttttttttttttttttttttt*/
+  position: absolute; /*passe les elements en block et les empiles*/
+  /*evite une sortee du cadre en étant invisible*/
+  top: 0;
+  left: 0;
+  /*img responsive*/
+  width: 100%;
+  height: auto;
+  /*--------- cosmetique ---------*/
+  border-radius: 5px;
+}
+/*---- class JS ----*/
+.carousel .slides > *.active {
+  /*relative : les parents prendront les dimensions de l'img 
+  active, mais l'img reviendra sur son affichage par defaut (inline)*/
+  position: relative;
+  display: block;
+}
+/* ---- Animation ---- */
+/*se lance quand le slide est display:block*/
+.fade {
+  animation-name: fade;
+  animation-duration: 3s;
+  animation-timing-function: ease-out;
+}
+@keyframes fade {
+  from {opacity: .2}
+  to {opacity: 1}
+}
+/*////// BOUTTONS SUIVANT/PRECEDENT //////*/
+.bouttons {
+  display: flex; /*les boutons seront responsive et alignable facilement*/
+  position: absolute;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 5;
+  /*prend la taille du parent, pour mieux aligner ses enfants*/
+  width: 100%;
+  height: 100%;
+  transition: opacity 1s ease; /*ajout opacity -> JS*/
+}
+.bouttons .fleche {
+  /*--------- cosmetique ---------*/
+  text-align: center;
+  user-select: none;
+  font-size: 3rem;
+  color: #ffffff75;
+}
+.fleche:hover {
+  /*--------- cosmetique ---------*/
+  opacity: 0.6;
+  cursor: pointer;
+}
+/*////// INDICATEURS DES IMAGES AFFICHES //////*/
+.indicators {
+  display: flex; /*les pastilles seront responsive et alignable facilement*/
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 5;
+  width: 100%;
+  bottom: 15px;
+  transition: opacity 1s ease; /*ajout opacity -> JS*/
+}
+.indicators span {
+  /*--------- cosmetique ---------*/
+  width: 15px;
+  height: 15px;
+  margin: 0px 1px;
+  border: solid 1px #ffffff9f;
+  background-color: #808080c0;
+  border-radius: 50px;
+}
+/*---- class JS ----*/
+.indicators .indicatorCourant,
+.indicators span:hover {
+  /*--------- cosmetique ---------*/
+  border: solid 1px #ffffff9f;
+  background-color: #000000;
+}
+/*////// NOM/COMM DES IMAGES AFFICHES //////*/
+.legende {
+  position: absolute;
+  z-index: 5;
+  margin: auto;
+  bottom: 45px;
+  width: 100%;
+  font-weight: 900;
+  text-align: center;
+  /*--------- cosmetique ---------*/
+  background-color: #808080c0;
+  border: solid 1px #ffffff9f;
+  border-radius: 5px;
+  transition: opacity 1s ease; /*ajout opacity -> JS*/
+}
